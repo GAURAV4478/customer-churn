@@ -155,6 +155,29 @@ elif page == "📊 EDA":
                   color_discrete_map={"Yes": "red", "No": "green"})
     st.plotly_chart(fig5, use_container_width=True)
 
+    # All Categorical Features vs Churn
+    st.subheader("Categorical Features vs Churn")
+    categorical_cols = [
+        'gender', 'SeniorCitizen', 'Partner', 'Dependents',
+        'PhoneService', 'MultipleLines', 'InternetService',
+        'OnlineSecurity', 'OnlineBackup', 'DeviceProtection',
+        'TechSupport', 'StreamingTV', 'StreamingMovies',
+        'Contract', 'PaperlessBilling', 'PaymentMethod'
+    ]
+    fig6, axes = plt.subplots(4, 4, figsize=(24, 20))
+    axes = axes.flatten()
+    for i, col in enumerate(categorical_cols):
+        sns.countplot(
+            x=col, hue='Churn', data=df_original,
+            palette=['green', 'red'], ax=axes[i]
+        )
+        axes[i].set_title(f'{col} vs Churn', fontsize=12)
+        axes[i].set_xlabel('')
+        axes[i].tick_params(axis='x', rotation=30)
+    plt.suptitle('Categorical Features vs Churn', fontsize=20, y=1.02)
+    plt.tight_layout()
+    st.pyplot(fig6)
+
 elif page == "🧪 Predict Churn":
     st.title("🧪 Predict Customer Churn")
     st.write("Fill in the customer details below to predict if they will churn.")
