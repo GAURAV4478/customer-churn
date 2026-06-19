@@ -3,7 +3,7 @@
 A machine learning web app built with Streamlit that predicts whether a telecom customer will churn or not.
 
 ## 🔗 Live Demo
-[Click here to view the app](#) ← add your Streamlit Cloud link here after deployment
+https://customer-churn-hwk4pihhdwsa7ku3vygphc.streamlit.app/
 
 ## 📌 Project Overview
 Customer churn is one of the biggest problems in the telecom industry. This project analyzes customer behavior and predicts churn using an XGBoost classification model trained on the IBM Telco Customer Churn dataset.
